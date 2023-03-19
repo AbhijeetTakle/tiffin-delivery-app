@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="50dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".LoginFragment">
+    android:padding="50dp"
+    tools:context=".SignupFragment">
 
     <EditText
-        android:id="@+id/login_username"
+        android:id="@+id/signup_username"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:autofillHints="emailAddress"
@@ -16,9 +16,19 @@
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/login_password"/>
+        app:layout_constraintBottom_toTopOf="@id/signup_user_email"/>
     <EditText
-        android:id="@+id/login_password"
+        android:id="@+id/signup_user_email"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:autofillHints="emailAddress"
+        android:hint="@string/login_username_hint"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/signup_password"/>
+    <EditText
+        android:id="@+id/signup_password"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:autofillHints="password"
@@ -28,32 +38,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+        android:id="@+id/signup_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:autofillHints="password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/login__confirm_password_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_password"/>
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/signup_btn"
         android:layout_width="100dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textAllCaps="false"
-        android:text="@string/login_button_title"
-        app:layout_constraintTop_toBottomOf="@id/login_password"/>
-    <TextView
-        android:id="@+id/create_new_user_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/register_user_link"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
-        android:text="@string/register_new_user_text"/>
-    <TextView
-        android:id="@+id/register_user_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/teal_700"
-        app:layout_constraintStart_toEndOf="@id/create_new_user_title"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
-        android:text="@string/register_btn_title"
-        android:textStyle="bold"/>
+        android:text="@string/signup_button_title"
+        app:layout_constraintTop_toBottomOf="@id/signup_confirm_password"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

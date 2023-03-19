@@ -2,4 +2,12 @@
     <string name="app_name">Tiffin Delivery App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_title">LunchBox</string>
+    <string name="login_button_title">Login</string>
+    <string name="login_username_hint">Enter email</string>
+    <string name="login_password_hint">Enter password</string>
+    <string name="register_new_user_text">Create new user?</string>
+    <string name="register_btn_title">Register</string>
+    <string name="signup_button_title">Signup</string>
+    <string name="login__confirm_password_hint">Confirm password</string>
 </resources>
