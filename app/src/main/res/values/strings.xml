@@ -10,4 +10,8 @@
     <string name="register_btn_title">Register</string>
     <string name="signup_button_title">Signup</string>
     <string name="login__confirm_password_hint">Confirm password</string>
+    <string name="string_bar_hint">search</string>
+    <string name="tiffin_service_filter_title">Tiffin services</string>
+    <string name="rating_filter_title">Rating</string>
+    <string name="mess_service_filter_title">Mess services</string>
 </resources>
