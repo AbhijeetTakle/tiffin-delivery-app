@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tiffindeliveryapp.adapters.TiffinServiceListAdapter
@@ -30,6 +32,7 @@ class TiffinServicesListFragment : Fragment() {
         }
         tiffinServicesList.adapter = tiffinServiceListAdapter
         tiffinServicesList.layoutManager = LinearLayoutManager(context)
+        setContactClickAction()
         return view
     }
 
@@ -37,5 +40,14 @@ class TiffinServicesListFragment : Fragment() {
         tiffinServicesListViewModel.servicesList.observe(viewLifecycleOwner){
             tiffinServiceListAdapter.onDatasetChanged(it)
         }
+    }
+
+    private fun setContactClickAction(){
+        tiffinServiceListAdapter.setOnItemClickListener(object:TiffinServiceListAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                val bundle = bundleOf("ServiceID" to "${tiffinServicesListViewModel.servicesList.value?.get(position)?.id}")
+                findNavController().navigate(R.id.action_tiffinServicesListFragment_to_serviceDetailsFragment, bundle)
+            }
+        })
     }
 }

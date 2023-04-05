@@ -1,14 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ServiceDetailsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ServiceDetailsFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_heading_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="150dp">
 
-</FrameLayout>
+        <FrameLayout
+            android:id="@+id/service_image_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintEnd_toStartOf="@id/service_info_container">
+            <ImageView
+                android:background="@drawable/item_list_img"
+                android:id="@+id/food_service_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/food"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"/>
+        </FrameLayout>
+        <LinearLayout
+            android:id="@+id/service_info_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintStart_toEndOf="@id/service_image_container"
+            app:layout_constraintEnd_toEndOf="parent">
+            <TextView
+                android:id="@+id/food_service_title"
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/food_service_description"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/food_service_subscriber_count"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_subscriber_count"
+                android:layout_height="30dp"/>
+            <TextView
+                android:id="@+id/food_service_rating"
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:drawableStart="@drawable/ic_rating"
+                android:background="@color/green"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tiffin_types_title"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tiffin_service_menu_title"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tiffin_service_customer_review_title"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+</LinearLayout>

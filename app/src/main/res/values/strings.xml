@@ -14,4 +14,7 @@
     <string name="tiffin_service_filter_title">Tiffin services</string>
     <string name="rating_filter_title">Rating</string>
     <string name="mess_service_filter_title">Mess services</string>
+    <string name="tiffin_types_title">Tiffin Types</string>
+    <string name="tiffin_service_menu_title">Today\'s Menu</string>
+    <string name="tiffin_service_customer_review_title">Customer Review</string>
 </resources>

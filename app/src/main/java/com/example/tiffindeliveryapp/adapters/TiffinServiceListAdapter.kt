@@ -12,6 +12,16 @@ import com.example.tiffindeliveryapp.datamodels.TiffinService
 
 class TiffinServiceListAdapter(var services:ArrayList<TiffinService>):Adapter<TiffinServiceListAdapter.TiffinServiceViewHolder>() {
 
+    private lateinit var clickListener: OnItemClickListener
+
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener){
+        clickListener = listener
+    }
+
     fun onDatasetChanged(list:ArrayList<TiffinService>){
         services = list
         notifyDataSetChanged()
@@ -19,7 +29,7 @@ class TiffinServiceListAdapter(var services:ArrayList<TiffinService>):Adapter<Ti
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TiffinServiceViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.service_list_item, parent, false)
-        return TiffinServiceViewHolder(view)
+        return TiffinServiceViewHolder(view, clickListener)
     }
 
     override fun onBindViewHolder(holder: TiffinServiceViewHolder, position: Int) {
@@ -27,14 +37,13 @@ class TiffinServiceListAdapter(var services:ArrayList<TiffinService>):Adapter<Ti
         holder.serviceDescription.text = services[position].description
         holder.serviceSubscriberCount.text = services[position].subscriberCount.toString()+" subscribers"
         holder.serviceRating.text = services[position].rating.toString()
-
     }
 
     override fun getItemCount(): Int {
         return services.size
     }
 
-    class TiffinServiceViewHolder(itemView: View) :ViewHolder(itemView){
+    class TiffinServiceViewHolder(itemView: View, listener:OnItemClickListener) :ViewHolder(itemView){
         val serviceTitle:TextView
         val serviceDescription:TextView
         val serviceSubscriberCount:TextView
@@ -47,6 +56,9 @@ class TiffinServiceListAdapter(var services:ArrayList<TiffinService>):Adapter<Ti
             serviceSubscriberCount = itemView.findViewById(R.id.food_service_subscriber_count)
             serviceRating = itemView.findViewById(R.id.food_service_rating)
             serviceImage = itemView.findViewById(R.id.food_service_image)
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
         }
     }
 }
