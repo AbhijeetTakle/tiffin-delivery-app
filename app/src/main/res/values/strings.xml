@@ -17,4 +17,6 @@
     <string name="tiffin_types_title">Tiffin Types</string>
     <string name="tiffin_service_menu_title">Today\'s Menu</string>
     <string name="tiffin_service_customer_review_title">Customer Review</string>
+    <string name="order_now">Order Now</string>
+    <string name="create_monthly_subscription">Create Monthly Subscription</string>
 </resources>
