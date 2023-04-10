@@ -51,7 +51,7 @@ class SignupFragment : Fragment() {
                             displayName = username
                         }
                         mAuth.currentUser?.updateProfile(userProfileUpdate)
-                        findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
+                        activity?.onBackPressedDispatcher?.onBackPressed()
                     }else{
                         Toast.makeText(context, "${it.exception?.message.toString()}", Toast.LENGTH_SHORT).show()
                     }
