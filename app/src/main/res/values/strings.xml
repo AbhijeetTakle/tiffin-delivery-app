@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_title">LunchBox</string>
     <string name="login_button_title">Login</string>
-    <string name="login_username_hint">Enter email</string>
+    <string name="login_username_hint">Enter username</string>
     <string name="login_password_hint">Enter password</string>
     <string name="register_new_user_text">Create new user?</string>
     <string name="register_btn_title">Register</string>
@@ -14,4 +14,12 @@
     <string name="tiffin_service_filter_title">Tiffin services</string>
     <string name="rating_filter_title">Rating</string>
     <string name="mess_service_filter_title">Mess services</string>
+    <string name="tiffin_types_title">Tiffin Types</string>
+    <string name="tiffin_service_menu_title">Today\'s Menu</string>
+    <string name="tiffin_service_customer_review_title">Customer Review</string>
+    <string name="login_email_hint">Enter email</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="subscribe_service">Subscribe</string>
+    <string name="subscription_type_title">Choose Subscription Type</string>
+    <string name="proceed">Proceed</string>
 </resources>

@@ -1,59 +1,68 @@
 package com.example.tiffindeliveryapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.tiffindeliveryapp.datamodels.TiffinService
+import com.example.tiffindeliveryapp.viewmodelfactory.ServiceDetailsViewModelFactory
+import com.example.tiffindeliveryapp.viewmodels.ServiceDetailsViewModel
+import kotlin.math.log
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ServiceDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ServiceDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var serviceDetailsViewModel: ServiceDetailsViewModel
+    private lateinit var serviceID:String
+    private lateinit var service:TiffinService
+    private lateinit var serviceTitle: TextView
+    private lateinit var subscribeService:Button
+    private lateinit var serviceDescription: TextView
+    private lateinit var serviceSubscriberCount: TextView
+    private lateinit var serviceRating: TextView
+    private lateinit var serviceImage: ImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_service_details, container, false)
+    ): View {
+        val view = inflater.inflate(R.layout.fragment_service_details, container, false)
+        serviceTitle = view.findViewById(R.id.food_service_title)
+        serviceDescription = view.findViewById(R.id.food_service_description)
+        serviceSubscriberCount = view.findViewById(R.id.food_service_subscriber_count)
+        serviceRating = view.findViewById(R.id.food_service_rating)
+        subscribeService = view.findViewById(R.id.subscribe_service)
+        serviceImage = view.findViewById(R.id.food_service_image)
+        arguments?.getString("ServiceID")?.let {
+            serviceID = it
+        }
+        serviceDetailsViewModel = ViewModelProvider(this, ServiceDetailsViewModelFactory(serviceID)).get(ServiceDetailsViewModel::class.java)
+        serviceDetailsViewModel.servicesList.observe(viewLifecycleOwner){
+            if(!it.isEmpty()){
+                service = it[0]
+                updateService()
+            }
+        }
+        subscribeService.setOnClickListener {
+            val bundle = bundleOf("ServiceID" to service.id)
+            findNavController().navigate(R.id.action_serviceDetailsFragment_to_serviceSubscriptionFragment, bundle)
+        }
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ServiceDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ServiceDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun updateService() {
+        serviceTitle.text = service.title
+        serviceDescription.text = service.description
+        serviceSubscriberCount.text = service.subscriberCount.toString()+" subscribers"
+        serviceRating.text = service.rating.toString()
     }
+
+
+
+
 }

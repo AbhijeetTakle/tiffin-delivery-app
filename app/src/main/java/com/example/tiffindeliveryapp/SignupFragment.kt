@@ -1,6 +1,7 @@
 package com.example.tiffindeliveryapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.tiffindeliveryapp.datamodels.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class SignupFragment : Fragment() {
@@ -33,6 +36,7 @@ class SignupFragment : Fragment() {
         signupConfirmPassword = view.findViewById(R.id.signup_confirm_password)
         signup = view.findViewById(R.id.signup_btn)
         mAuth = Firebase.auth
+        mAuth.signOut()
         setActionsToButtons()
         return view
     }
@@ -40,23 +44,35 @@ class SignupFragment : Fragment() {
     private fun setActionsToButtons() {
         signup.setOnClickListener {
             if(checkValidInput()){
-                val username = signupUsername.text.toString().trim()
                 val userEmail = signupUserEmail.text.toString().trim()
                 val password = signupPassword.text.toString().trim()
 
-                mAuth.createUserWithEmailAndPassword(userEmail, password).addOnCompleteListener {
+                mAuth.createUserWithEmailAndPassword(userEmail, password).addOnCompleteListener { it ->
                     if(it.isSuccessful){
-                        Toast.makeText(context, "User Created Successfully",Toast.LENGTH_SHORT).show()
-                        val userProfileUpdate = userProfileChangeRequest {
-                            displayName = username
-                        }
-                        mAuth.currentUser?.updateProfile(userProfileUpdate)
-                        findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
+                        addUser()
                     }else{
                         Toast.makeText(context, "${it.exception?.message.toString()}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
+        }
+    }
+
+    private fun addUser(){
+        val db  = Firebase.firestore
+        val username = signupUsername.text.toString().trim()
+        mAuth.currentUser?.let {currentUser ->
+            val user = User(currentUser.uid, username, currentUser.email, null, null)
+            db.collection("users")
+                .add(user)
+                .addOnSuccessListener {
+                    Toast.makeText(context, "User Created Successfully",Toast.LENGTH_SHORT).show()
+                    activity?.onBackPressedDispatcher?.onBackPressed()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(context, "Unable to create user!",Toast.LENGTH_SHORT).show()
+                    mAuth.currentUser?.delete()
+                }
         }
     }
 

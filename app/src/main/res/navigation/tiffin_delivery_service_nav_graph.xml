@@ -3,33 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tiffin_delivery_service_nav_graph"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/tiffinServicesListFragment">
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.tiffindeliveryapp.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_tiffinServicesListFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"
-            app:destination="@id/tiffinServicesListFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_signupFragment"
-            app:destination="@id/signupFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.example.tiffindeliveryapp.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_loginFragment"
-            app:popUpTo="@id/splashScreenFragment"
-            app:popUpToInclusive="true"
-            app:destination="@id/loginFragment" />
-    </fragment>
     <fragment
         android:id="@+id/tiffinServicesListFragment"
         android:name="com.example.tiffindeliveryapp.TiffinServicesListFragment"
@@ -43,16 +18,32 @@
         android:id="@+id/serviceDetailsFragment"
         android:name="com.example.tiffindeliveryapp.ServiceDetailsFragment"
         android:label="fragment_service_details"
-        tools:layout="@layout/fragment_service_details" />
-    <fragment
-        android:id="@+id/signupFragment"
-        android:name="com.example.tiffindeliveryapp.SignupFragment"
-        android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup" >
+        tools:layout="@layout/fragment_service_details" >
         <action
-            android:id="@+id/action_signupFragment_to_loginFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_serviceDetailsFragment_to_serviceSubscriptionFragment"
+            app:destination="@id/serviceSubscriptionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/serviceSubscriptionFragment"
+        android:name="com.example.tiffindeliveryapp.ServiceSubscriptionFragment"
+        android:label="fragment_service_subscription"
+        tools:layout="@layout/fragment_service_subscription" >
+        <action
+            android:id="@+id/action_serviceSubscriptionFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.tiffindeliveryapp.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_orderPlacedFragment"
+            app:destination="@id/orderPlacedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderPlacedFragment"
+        android:name="com.example.tiffindeliveryapp.OrderPlacedFragment"
+        android:label="fragment_order_placed"
+        tools:layout="@layout/fragment_order_placed" />
 </navigation>

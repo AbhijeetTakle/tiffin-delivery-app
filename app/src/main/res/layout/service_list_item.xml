@@ -13,11 +13,13 @@
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintEnd_toStartOf="@id/service_info_container">
         <ImageView
+            android:background="@drawable/item_list_img"
             android:id="@+id/food_service_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="centerCrop"/>
+            android:src="@drawable/food"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"/>
     </FrameLayout>
     <LinearLayout
         android:id="@+id/service_info_container"
