@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_signup_nav_graph"
+    app:startDestination="@id/loginFragment2">
+
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.tiffindeliveryapp.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment2" />
+        <action
+            android:id="@+id/action_loginFragment2_to_phoneLoginFragment"
+            app:destination="@id/phoneLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment2"
+        android:name="com.example.tiffindeliveryapp.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/phoneLoginFragment"
+        android:name="com.example.tiffindeliveryapp.PhoneLoginFragment"
+        android:label="fragment_phone_login"
+        tools:layout="@layout/fragment_phone_login" >
+        <action
+            android:id="@+id/action_phoneLoginFragment_to_OTPLoginFragment"
+            app:destination="@id/OTPLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/OTPLoginFragment"
+        android:name="com.example.tiffindeliveryapp.OTPLoginFragment"
+        android:label="fragment_o_t_p_login"
+        tools:layout="@layout/fragment_o_t_p_login" />
+</navigation>
