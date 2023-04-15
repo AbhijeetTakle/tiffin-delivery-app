@@ -38,6 +38,9 @@ class LoginFragment : Fragment() {
         login = view.findViewById(R.id.login_btn)
         registerNewUser = view.findViewById(R.id.register_user_link)
         mAuth = Firebase.auth
+        if (mAuth.currentUser != null){
+            mAuth.signOut()
+        }
         setActionToButtons()
         return view
     }

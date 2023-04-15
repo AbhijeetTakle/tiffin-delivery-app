@@ -107,4 +107,11 @@
                 android:textStyle="bold"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
+
+    <Button
+        android:id="@+id/subscribe_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="@string/subscribe_service" />
 </LinearLayout>

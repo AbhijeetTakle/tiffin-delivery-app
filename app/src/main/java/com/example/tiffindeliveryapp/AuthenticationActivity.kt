@@ -8,6 +8,8 @@ import com.example.tiffindeliveryapp.utils.AuthenticationListener
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
 class AuthenticationActivity : AppCompatActivity(), AuthenticationListener {
@@ -16,6 +18,7 @@ class AuthenticationActivity : AppCompatActivity(), AuthenticationListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)
         auth = FirebaseAuth.getInstance()
+        Firebase.auth.signOut()
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
@@ -60,7 +63,7 @@ class AuthenticationActivity : AppCompatActivity(), AuthenticationListener {
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(phone)       // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(this)                 // Activity (for callback binding)
+            .setActivity(this) // Activity (for callback binding)
             .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)

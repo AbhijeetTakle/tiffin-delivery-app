@@ -16,7 +16,6 @@ class ServiceDetailsViewModel(val id:String):ViewModel() {
 
     var servicesList: MutableLiveData<ArrayList<TiffinService>> = MutableLiveData(ArrayList())
     init {
-        Log.d("TAG", "id: ${id}")
         getServicesData()
     }
 
@@ -30,7 +29,7 @@ class ServiceDetailsViewModel(val id:String):ViewModel() {
                     for (document in result) {
                         if(id == document.id){
                             val service = document.toObject(TiffinService::class.java)
-                            Log.d("TAG", "getServicesData: ${service}")
+                            service.id = document.id
                             list.add(service)
                         }
                     }

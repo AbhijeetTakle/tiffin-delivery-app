@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.tiffindeliveryapp.datamodels.TiffinService
 import com.example.tiffindeliveryapp.viewmodelfactory.ServiceDetailsViewModelFactory
 import com.example.tiffindeliveryapp.viewmodels.ServiceDetailsViewModel
@@ -19,6 +22,7 @@ class ServiceDetailsFragment : Fragment() {
     private lateinit var serviceID:String
     private lateinit var service:TiffinService
     private lateinit var serviceTitle: TextView
+    private lateinit var subscribeService:Button
     private lateinit var serviceDescription: TextView
     private lateinit var serviceSubscriberCount: TextView
     private lateinit var serviceRating: TextView
@@ -32,6 +36,7 @@ class ServiceDetailsFragment : Fragment() {
         serviceDescription = view.findViewById(R.id.food_service_description)
         serviceSubscriberCount = view.findViewById(R.id.food_service_subscriber_count)
         serviceRating = view.findViewById(R.id.food_service_rating)
+        subscribeService = view.findViewById(R.id.subscribe_service)
         serviceImage = view.findViewById(R.id.food_service_image)
         arguments?.getString("ServiceID")?.let {
             serviceID = it
@@ -40,9 +45,12 @@ class ServiceDetailsFragment : Fragment() {
         serviceDetailsViewModel.servicesList.observe(viewLifecycleOwner){
             if(!it.isEmpty()){
                 service = it[0]
-                Log.d("TAG", "updateService: "+service.title)
                 updateService()
             }
+        }
+        subscribeService.setOnClickListener {
+            val bundle = bundleOf("ServiceID" to service.id)
+            findNavController().navigate(R.id.action_serviceDetailsFragment_to_serviceSubscriptionFragment, bundle)
         }
         return view
     }
@@ -53,6 +61,8 @@ class ServiceDetailsFragment : Fragment() {
         serviceSubscriberCount.text = service.subscriberCount.toString()+" subscribers"
         serviceRating.text = service.rating.toString()
     }
+
+
 
 
 }

@@ -18,5 +18,32 @@
         android:id="@+id/serviceDetailsFragment"
         android:name="com.example.tiffindeliveryapp.ServiceDetailsFragment"
         android:label="fragment_service_details"
-        tools:layout="@layout/fragment_service_details" />
+        tools:layout="@layout/fragment_service_details" >
+        <action
+            android:id="@+id/action_serviceDetailsFragment_to_serviceSubscriptionFragment"
+            app:destination="@id/serviceSubscriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceSubscriptionFragment"
+        android:name="com.example.tiffindeliveryapp.ServiceSubscriptionFragment"
+        android:label="fragment_service_subscription"
+        tools:layout="@layout/fragment_service_subscription" >
+        <action
+            android:id="@+id/action_serviceSubscriptionFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.tiffindeliveryapp.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_orderPlacedFragment"
+            app:destination="@id/orderPlacedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderPlacedFragment"
+        android:name="com.example.tiffindeliveryapp.OrderPlacedFragment"
+        android:label="fragment_order_placed"
+        tools:layout="@layout/fragment_order_placed" />
 </navigation>

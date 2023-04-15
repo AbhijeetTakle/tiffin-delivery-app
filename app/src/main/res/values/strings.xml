@@ -19,4 +19,7 @@
     <string name="tiffin_service_customer_review_title">Customer Review</string>
     <string name="login_email_hint">Enter email</string>
     <string name="send_otp">Send OTP</string>
+    <string name="subscribe_service">Subscribe</string>
+    <string name="subscription_type_title">Choose Subscription Type</string>
+    <string name="proceed">Proceed</string>
 </resources>
