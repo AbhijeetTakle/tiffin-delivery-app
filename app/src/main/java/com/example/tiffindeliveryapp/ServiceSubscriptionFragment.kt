@@ -1,6 +1,8 @@
 package com.example.tiffindeliveryapp
 
 import android.app.DatePickerDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -21,10 +23,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.tiffindeliveryapp.datamodels.Order
 import com.example.tiffindeliveryapp.datamodels.TiffinService
 import com.google.api.Distribution.BucketOptions.Linear
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 
 class ServiceSubscriptionFragment : Fragment() {
     private lateinit var subscriptionStartDate:TextView
@@ -54,7 +59,7 @@ class ServiceSubscriptionFragment : Fragment() {
             loadService()
         }
         init(view)
-        setActions()
+        setActions(view)
         return view
     }
 
@@ -72,11 +77,14 @@ class ServiceSubscriptionFragment : Fragment() {
         proceedToPayment = view.findViewById(R.id.proceed_to_payment)
     }
 
-    private fun setActions(){
+    private fun setActions(view:View){
         val myCalender = Calendar.getInstance()
         subscriptionStartDate.text = "${myCalender.get(Calendar.DAY_OF_MONTH)}-${myCalender.get(Calendar.MONTH)+1}-${myCalender.get(Calendar.YEAR)}"
         subscriptionEndDate.text = "${myCalender.get(Calendar.DAY_OF_MONTH)}-${myCalender.get(Calendar.MONTH)+1}-${myCalender.get(Calendar.YEAR)}"
         dayDelivery.text = "${myCalender.get(Calendar.DAY_OF_MONTH)}-${myCalender.get(Calendar.MONTH)+1}-${myCalender.get(Calendar.YEAR)}"
+        SubsStartDate = myCalender.time
+        SubsEndDate = myCalender.time
+        dayDeliveryDate = myCalender.time
         subscriptionStartDate.setOnClickListener {
             openDatePickerDialog(subscriptionStartDate)
         }
@@ -99,8 +107,62 @@ class ServiceSubscriptionFragment : Fragment() {
             openDatePickerDialog(dayDelivery)
         }
         proceedToPayment.setOnClickListener {
+            val tiffinType = view.findViewById<RadioButton>(tiffinTypes.checkedRadioButtonId).text.toString()
+            val preference = view.findViewById<RadioButton>(foodPreferences.checkedRadioButtonId).text.toString()
+            val addressLine1 = view.findViewById<EditText>(R.id.address_line1)
+            val addressLine2 = view.findViewById<EditText>(R.id.address_line2)
+            val addressDistrict = view.findViewById<EditText>(R.id.address_district)
+            val addressState = view.findViewById<EditText>(R.id.address_state)
+            val addressPincode = view.findViewById<EditText>(R.id.address_pincode)
+            val address = HashMap<String, String>()
+            address.put(addressLine1.hint.toString(), addressLine1.text.toString())
+            address.put(addressLine2.hint.toString(), addressLine2.text.toString())
+            address.put(addressDistrict.hint.toString(), addressDistrict.text.toString())
+            address.put(addressState.hint.toString(), addressState.text.toString())
+            address.put(addressPincode.hint.toString(), addressPincode.text.toString())
+            when(subscriptionTypes.checkedRadioButtonId){
+                R.id.day_delivery -> {
+                    val order = Firebase.auth.currentUser?.uid?.let { it1 ->
+                        Order(
+                            serviceID,
+                            it1,
+                            dayDeliveryDate,
+                            dayDeliveryDate,
+                            tiffinType,
+                            preference,
+                            address,
+                            false,
+                            "COD"
+                        )
+                    }
+                    saveOrder(order)
+                }                R.id.create_subscription -> {
+                    val order = Firebase.auth.currentUser?.uid?.let { it1 ->
+                        Order(
+                            serviceID,
+                            it1,
+                            SubsStartDate,
+                            SubsEndDate,
+                            tiffinType,
+                            preference,
+                            address,
+                            false,
+                            "COD"
+                        )
+                    }
+                saveOrder(order)
+                }            }
             findNavController().navigate(R.id.action_serviceSubscriptionFragment_to_paymentFragment)
         }
+    }
+
+    private fun saveOrder(order:Order?) {
+        val mPrefs = activity?.getSharedPreferences("order", Context.MODE_PRIVATE)
+        val editor = mPrefs?.edit()
+        val gson = Gson()
+        val json = gson.toJson(order)
+        editor?.putString("currentOrder", json)
+        editor?.commit()
     }
 
     private fun openDatePickerDialog(dateView:TextView){
@@ -115,18 +177,17 @@ class ServiceSubscriptionFragment : Fragment() {
             val format = "dd-MM-yyyy"
             val sdf = SimpleDateFormat(format, Locale.UK)
             dateView.text = sdf.format(myCalender.time)
-        }
-        when(dateView){
-            subscriptionStartDate -> SubsStartDate = myCalender.time
-            subscriptionEndDate -> SubsEndDate = myCalender.time
-            dayDelivery -> dayDeliveryDate = myCalender.time
+            when(dateView){
+                subscriptionStartDate -> SubsStartDate = myCalender.time
+                subscriptionEndDate -> SubsEndDate = myCalender.time
+                dayDelivery -> dayDeliveryDate = myCalender.time
+            }
         }
         DatePickerDialog(requireContext(), datePicker, myCalender.get(mYear), myCalender.get(mMonth), myCalender.get(mDay)).show()
     }
 
     private fun loadService(){
         val db = Firebase.firestore
-        Log.d(TAG, "loadService: ${serviceID}")
         val list = ArrayList<TiffinService>()
         db.collection("TiffinServices")
             .get()
