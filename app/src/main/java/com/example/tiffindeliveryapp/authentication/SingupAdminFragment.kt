@@ -1,7 +1,6 @@
-package com.example.tiffindeliveryapp
+package com.example.tiffindeliveryapp.authentication
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,27 +8,25 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.tiffindeliveryapp.datamodels.User
+import com.example.tiffindeliveryapp.R
+import com.example.tiffindeliveryapp.datamodels.Admin
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class SignupFragment : Fragment() {
-
+class SingupAdminFragment : Fragment() {
     private lateinit var signupUserEmail: EditText
     private lateinit var signupUsername: EditText
     private lateinit var signupPassword: EditText
     private lateinit var signupConfirmPassword: EditText
     private lateinit var signup: Button
-    private lateinit var mAuth:FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_signup, container, false)
+        val view = inflater.inflate(R.layout.fragment_singup_admin, container, false)
         signupUsername = view.findViewById(R.id.signup_username)
         signupUserEmail = view.findViewById(R.id.signup_user_email)
         signupPassword = view.findViewById(R.id.signup_password)
@@ -62,15 +59,15 @@ class SignupFragment : Fragment() {
         val db  = Firebase.firestore
         val username = signupUsername.text.toString().trim()
         mAuth.currentUser?.let {currentUser ->
-            val user = User(currentUser.uid, username, currentUser.email, null, null)
-            db.collection("users")
-                .add(user)
+            val admin = Admin(currentUser.uid, null, ArrayList<String>())
+            db.collection("admins")
+                .add(admin)
                 .addOnSuccessListener {
-                    Toast.makeText(context, "User Created Successfully",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "admin Created Successfully", Toast.LENGTH_SHORT).show()
                     activity?.onBackPressedDispatcher?.onBackPressed()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(context, "Unable to create user!",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Unable to create admin!", Toast.LENGTH_SHORT).show()
                     mAuth.currentUser?.delete()
                 }
         }
@@ -104,5 +101,4 @@ class SignupFragment : Fragment() {
         }
         return true
     }
-
 }

@@ -20,6 +20,7 @@ class TiffinServicesListViewModel:ViewModel() {
         viewModelScope.async(Dispatchers.Default) {
             val db = Firebase.firestore
             db.collection("TiffinServices")
+                .whereEqualTo("isVerified", true)
                 .get()
                 .addOnSuccessListener { result ->
                     for (document in result) {

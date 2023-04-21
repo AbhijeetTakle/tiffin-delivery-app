@@ -1,7 +1,6 @@
-package com.example.tiffindeliveryapp
+package com.example.tiffindeliveryapp.user
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tiffindeliveryapp.R
 import com.example.tiffindeliveryapp.adapters.TiffinServiceListAdapter
-import com.example.tiffindeliveryapp.datamodels.TiffinService
 import com.example.tiffindeliveryapp.viewmodels.TiffinServicesListViewModel
 
 class TiffinServicesListFragment : Fragment() {
