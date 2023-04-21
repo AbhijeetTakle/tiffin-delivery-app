@@ -1,7 +1,6 @@
-package com.example.tiffindeliveryapp
+package com.example.tiffindeliveryapp.user
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +11,10 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.tiffindeliveryapp.R
 import com.example.tiffindeliveryapp.datamodels.TiffinService
 import com.example.tiffindeliveryapp.viewmodelfactory.ServiceDetailsViewModelFactory
 import com.example.tiffindeliveryapp.viewmodels.ServiceDetailsViewModel
-import kotlin.math.log
 
 class ServiceDetailsFragment : Fragment() {
     private lateinit var serviceDetailsViewModel: ServiceDetailsViewModel

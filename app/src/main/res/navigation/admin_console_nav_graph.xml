@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_console_nav_graph"
+    app:startDestination="@id/ordersListFragment">
+
+    <fragment
+        android:id="@+id/ordersListFragment"
+        android:name="com.example.tiffindeliveryapp.admin.OrdersListFragment"
+        android:label="fragment_orders_list"
+        tools:layout="@layout/fragment_orders_list" >
+        <action
+            android:id="@+id/action_ordersListFragment_to_tiffinServiceRegisterationFragment"
+            app:destination="@id/tiffinServiceRegisterationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tiffinServiceRegisterationFragment"
+        android:name="com.example.tiffindeliveryapp.admin.TiffinServiceRegisterationFragment"
+        android:label="fragment_tiffin_service_registeration"
+        tools:layout="@layout/fragment_tiffin_service_registeration" />
+</navigation>

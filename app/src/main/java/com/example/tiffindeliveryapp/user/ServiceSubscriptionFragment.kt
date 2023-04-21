@@ -1,11 +1,8 @@
-package com.example.tiffindeliveryapp
+package com.example.tiffindeliveryapp.user
 
 import android.app.DatePickerDialog
 import android.content.Context
-import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,13 +13,11 @@ import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
+import com.example.tiffindeliveryapp.R
 import com.example.tiffindeliveryapp.datamodels.Order
 import com.example.tiffindeliveryapp.datamodels.TiffinService
-import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
