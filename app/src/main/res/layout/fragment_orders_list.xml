@@ -4,25 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".authentication.PhoneLoginFragment">
+    tools:context=".admin.OrdersListFragment">
 
-    <EditText
-        android:id="@+id/phone_number"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progress_orders_list_load"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/send_otp"
+        android:id="@+id/register_tiffin_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/send_otp"
-        android:textAllCaps="false"
+        android:visibility="gone"
+        android:text="@string/register_tiffin_service"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orders_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

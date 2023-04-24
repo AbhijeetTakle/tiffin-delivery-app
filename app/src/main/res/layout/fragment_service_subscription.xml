@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".ServiceSubscriptionFragment">
+    tools:context=".user.ServiceSubscriptionFragment">
 
     <TextView
         android:layout_width="match_parent"

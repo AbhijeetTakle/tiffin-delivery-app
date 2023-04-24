@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".admin.TiffinServiceRegisterationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tiffin_service_registeration_details"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:"/>
+    <EditText
+        android:id="@+id/tiffin_service_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name of the Service"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description:"/>
+    <EditText
+        android:id="@+id/tiffin_service_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description of the Service"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Food Preference"/>
+    <RadioButton
+        android:id="@+id/veg_food_pref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veg"/>
+    <RadioButton
+        android:id="@+id/nonveg_food_pref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non-Veg"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tiffin Types"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Large Tiffin"/>
+    <EditText
+        android:id="@+id/price_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Set Price for Large Tiffin"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Small Tiffin"/>
+    <EditText
+        android:id="@+id/price_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Set Price for Small Tiffin"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Menu For Today"/>
+    <EditText
+        android:id="@+id/menu_today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Today's Menu"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address For Delivery"/>
+    <EditText
+        android:id="@+id/address_line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Adress line 1"/>
+    <EditText
+        android:id="@+id/address_line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Adress line 2"/>
+    <EditText
+        android:id="@+id/address_district"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="district" />
+    <EditText
+        android:id="@+id/address_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="State"/>
+    <EditText
+        android:id="@+id/address_pincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pincode"/>
+    <Button
+        android:id="@+id/submit_registration_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Submit"/>
+    </LinearLayout>
+</ScrollView>

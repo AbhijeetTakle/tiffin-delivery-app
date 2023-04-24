@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".PaymentFragment">
+    tools:context=".user.PaymentFragment">
     <TextView
         android:id="@+id/total_price"
         android:layout_width="wrap_content"

@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="50dp"
-    tools:context=".authentication.SignupFragment"
-    android:background="@drawable/splash_01">
+    android:background="@drawable/splash_01"
+    tools:context=".authentication.SingupAdminFragment">
 
     <View
         android:id="@+id/view"

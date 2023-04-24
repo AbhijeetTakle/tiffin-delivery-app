@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".authentication.LoginFragment">
+    tools:context=".authentication.LoginAdminFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -109,16 +109,5 @@
         app:layout_constraintStart_toEndOf="@id/create_new_user_title"
         app:layout_constraintTop_toBottomOf="@id/login_btn" />
 
-    <TextView
-        android:id="@+id/login_as_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/admin_login_btn_title"
-        android:textColor="@color/teal_700"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_new_user_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
