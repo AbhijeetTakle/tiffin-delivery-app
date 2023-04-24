@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="50dp"
     tools:context=".authentication.SignupFragment"
-    android:background="@drawable/bg_transparent">
+    android:background="@drawable/splash_01">
 
     <View
         android:id="@+id/view"
