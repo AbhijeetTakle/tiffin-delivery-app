@@ -23,7 +23,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/dm_sans_bold"
         android:text="Order Recieved"
         android:textColor="@color/Orange"
         android:textSize="30sp"

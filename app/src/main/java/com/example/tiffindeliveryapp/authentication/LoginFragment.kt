@@ -69,10 +69,13 @@ class LoginFragment : Fragment() {
             }
         }
         registerNewUser.setOnClickListener {
-            findNavController().navigate(R.id.action_loginAdminFragment_to_singupAdminFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
         loginAsAdmin.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment2_to_loginAdminFragment)
+        }
+        loginWithOTP.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment2_to_phoneLoginFragment)
         }
     }
 

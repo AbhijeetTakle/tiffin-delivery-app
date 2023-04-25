@@ -55,7 +55,7 @@ class OrdersListFragment : Fragment() {
     }
 
     private fun getOrders() {
-        
+
     }
 
     private fun init(view: View) {
