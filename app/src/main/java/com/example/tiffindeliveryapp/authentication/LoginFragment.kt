@@ -74,6 +74,9 @@ class LoginFragment : Fragment() {
         loginAsAdmin.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment2_to_loginAdminFragment)
         }
+        loginWithOTP.setOnClickListener {
+            findNavController().navigate((R.id.action_loginFragment2_to_phoneLoginFragment))
+        }
     }
 
     private fun checkValidInput():Boolean {
