@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -28,6 +29,7 @@ class PhoneLoginFragment : Fragment() {
     private lateinit var sendOTP: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var number: String
+    private lateinit var mProgressBar : ProgressBar
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +38,8 @@ class PhoneLoginFragment : Fragment() {
         phoneNumber = view.findViewById(R.id.phone_number)
         sendOTP = view.findViewById(R.id.send_otp)
         auth = FirebaseAuth.getInstance()
+        mProgressBar = view.findViewById(R.id.phoneProgressBar)
+        mProgressBar.visibility = View.INVISIBLE
 //        Firebase.auth.signOut()
 
         sendOTP.setOnClickListener {
@@ -43,6 +47,7 @@ class PhoneLoginFragment : Fragment() {
             if (number.isNotEmpty()) {
                 if (number.length == 10) {
                     number = "+91$number"
+                    mProgressBar.visibility = View.VISIBLE
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
@@ -83,6 +88,7 @@ class PhoneLoginFragment : Fragment() {
                         // The verification code entered was invalid
                     }
                     // Update UI
+                    mProgressBar.visibility = View.INVISIBLE
                 }
             }
     }
@@ -111,8 +117,9 @@ class PhoneLoginFragment : Fragment() {
             } else if (e is FirebaseTooManyRequestsException) {
                 // The SMS quota for the project has been exceeded
                 Log.d("TAG", "onVerificationFailed: ${e.toString()}")
-                // Show a message and update the UI
             }
+            // Show a message and update the UI
+            mProgressBar.visibility = View.VISIBLE
         }
             override fun onCodeSent(
                 verificationId: String,
@@ -127,6 +134,7 @@ class PhoneLoginFragment : Fragment() {
                     "resendToken" to token,
                     "phoneNumber" to number,
                 )
+                mProgressBar.visibility = View.INVISIBLE
 //                Log.d("TAG", "onCodeSent: ${bundle.getString("OTP")} ")
                 findNavController().navigate(R.id.action_phoneLoginFragment_to_OTPLoginFragment, bundle)
             }

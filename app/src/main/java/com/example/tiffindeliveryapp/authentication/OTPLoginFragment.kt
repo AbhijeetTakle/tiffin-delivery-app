@@ -32,6 +32,7 @@ class OTPLoginFragment : Fragment() {
     private lateinit var inputOTP4: EditText
     private lateinit var inputOTP5: EditText
     private lateinit var inputOTP6: EditText
+    private lateinit var progressBar: ProgressBar
 
     private lateinit var OTP: String
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
@@ -44,6 +45,7 @@ class OTPLoginFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_o_t_p_login, container, false)
         init(view)
+        progressBar.visibility = View.INVISIBLE
         addTextChangeListener()
         resendOTPTvVisibility()
         setActions()
@@ -66,7 +68,7 @@ class OTPLoginFragment : Fragment() {
                     val credential: PhoneAuthCredential = PhoneAuthProvider.getCredential(
                         OTP, typedOTP
                     )
-//                    progressBar.visibility = View.VISIBLE
+                    progressBar.visibility = View.VISIBLE
                     signInWithPhoneAuthCredential(credential)
                 } else {
                     Toast.makeText(context, "Please Enter Correct OTP", Toast.LENGTH_SHORT).show()
@@ -147,7 +149,7 @@ class OTPLoginFragment : Fragment() {
                 // The SMS quota for the project has been exceeded
                 Log.d("TAG", "onVerificationFailed: ${e.toString()}")
             }
-//            progressBar.visibility = View.VISIBLE
+            progressBar.visibility = View.VISIBLE
             // Show a message and update the UI
         }
 
@@ -180,7 +182,7 @@ class OTPLoginFragment : Fragment() {
                     }
                     // Update UI
                 }
-//                progressBar.visibility = View.VISIBLE
+                progressBar.visibility = View.VISIBLE
             }
     }
 
@@ -200,7 +202,7 @@ class OTPLoginFragment : Fragment() {
 
     private fun init(view:View) {
         auth = FirebaseAuth.getInstance()
-//        progressBar = view.findViewById(com.google.firebase.auth.R.id.otpProgressBar)
+        progressBar = view.findViewById(R.id.otpProgressBar)
         verifyBtn = view.findViewById(R.id.verifyOTPBtn)
         resendTV = view.findViewById(R.id.resendTextView)
         inputOTP1 = view.findViewById(R.id.otpEditText1)

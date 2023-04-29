@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -18,6 +19,7 @@ class TiffinServicesListFragment : Fragment() {
     private lateinit var tiffinServicesList:RecyclerView
     private lateinit var tiffinServiceListAdapter: TiffinServiceListAdapter
     private lateinit var tiffinServicesListViewModel: TiffinServicesListViewModel
+    private lateinit var ordersListTab: Button
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,6 +27,7 @@ class TiffinServicesListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_tiffin_services_list, container, false)
         tiffinServicesListViewModel = ViewModelProvider(this).get(TiffinServicesListViewModel::class.java)
         setObserverOnServicesList()
+        ordersListTab = view.findViewById(R.id.orders_list_tab)
         tiffinServicesList = view.findViewById(R.id.tiffin_services_list)
         tiffinServicesListViewModel.servicesList.value?.let {
             tiffinServiceListAdapter = TiffinServiceListAdapter(it)
@@ -48,5 +51,8 @@ class TiffinServicesListFragment : Fragment() {
                 findNavController().navigate(R.id.action_tiffinServicesListFragment_to_serviceDetailsFragment, bundle)
             }
         })
+        ordersListTab.setOnClickListener {
+            findNavController().navigate(R.id.)
+        }
     }
 }
