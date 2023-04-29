@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment2"
-        android:name="com.example.tiffindeliveryapp.LoginFragment"
+        android:name="com.example.tiffindeliveryapp.authentication.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,15 +16,18 @@
         <action
             android:id="@+id/action_loginFragment2_to_phoneLoginFragment"
             app:destination="@id/phoneLoginFragment" />
+        <action
+            android:id="@+id/action_loginFragment2_to_loginAdminFragment"
+            app:destination="@id/loginAdminFragment" />
     </fragment>
     <fragment
         android:id="@+id/signupFragment2"
-        android:name="com.example.tiffindeliveryapp.SignupFragment"
+        android:name="com.example.tiffindeliveryapp.authentication.SignupFragment"
         android:label="fragment_signup"
         tools:layout="@layout/fragment_signup" />
     <fragment
         android:id="@+id/phoneLoginFragment"
-        android:name="com.example.tiffindeliveryapp.PhoneLoginFragment"
+        android:name="com.example.tiffindeliveryapp.authentication.PhoneLoginFragment"
         android:label="fragment_phone_login"
         tools:layout="@layout/fragment_phone_login" >
         <action
@@ -33,7 +36,21 @@
     </fragment>
     <fragment
         android:id="@+id/OTPLoginFragment"
-        android:name="com.example.tiffindeliveryapp.OTPLoginFragment"
+        android:name="com.example.tiffindeliveryapp.authentication.OTPLoginFragment"
         android:label="fragment_o_t_p_login"
         tools:layout="@layout/fragment_o_t_p_login" />
+    <fragment
+        android:id="@+id/loginAdminFragment"
+        android:name="com.example.tiffindeliveryapp.authentication.LoginAdminFragment"
+        android:label="fragment_login_admin"
+        tools:layout="@layout/fragment_login_admin" >
+        <action
+            android:id="@+id/action_loginAdminFragment_to_singupAdminFragment"
+            app:destination="@id/singupAdminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singupAdminFragment"
+        android:name="com.example.tiffindeliveryapp.authentication.SingupAdminFragment"
+        android:label="fragment_singup_admin"
+        tools:layout="@layout/fragment_singup_admin" />
 </navigation>
