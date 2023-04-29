@@ -7,8 +7,8 @@
     tools:context=".SpalshScreenActivity">
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="443dp"
-        android:layout_height="902dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/splash_01"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_title"
         android:textColor="@color/white"
-        android:textSize="60sp"
+        android:textSize="@dimen/_50sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"

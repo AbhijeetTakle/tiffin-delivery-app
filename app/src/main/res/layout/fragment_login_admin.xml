@@ -82,10 +82,11 @@
         android:background="@drawable/round_btn"
         android:text="@string/login_button_title"
         android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password" />
+        app:layout_constraintTop_toBottomOf="@+id/login_password"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/create_new_user_title"
@@ -94,8 +95,10 @@
         android:layout_marginStart="116dp"
         android:layout_marginTop="32dp"
         android:text="@string/register_new_user_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/login_btn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/register_user_link"
@@ -106,8 +109,10 @@
         android:text="@string/register_btn_title"
         android:textColor="@color/teal_700"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/create_new_user_title"
-        app:layout_constraintTop_toBottomOf="@id/login_btn" />
+        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

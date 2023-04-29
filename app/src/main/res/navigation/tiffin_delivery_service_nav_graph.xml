@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_tiffinServicesListFragment_to_serviceDetailsFragment"
             app:destination="@id/serviceDetailsFragment" />
+        <action
+            android:id="@+id/action_tiffinServicesListFragment_to_ordersListFragment2"
+            app:destination="@id/ordersListFragment2" />
     </fragment>
     <fragment
         android:id="@+id/serviceDetailsFragment"
@@ -46,4 +49,9 @@
         android:name="com.example.tiffindeliveryapp.user.OrderPlacedFragment"
         android:label="fragment_order_placed"
         tools:layout="@layout/fragment_order_placed" />
+    <fragment
+        android:id="@+id/ordersListFragment2"
+        android:name="com.example.tiffindeliveryapp.OrdersListFragment"
+        android:label="fragment_orders_list2"
+        tools:layout="@layout/fragment_orders_list2" />
 </navigation>
