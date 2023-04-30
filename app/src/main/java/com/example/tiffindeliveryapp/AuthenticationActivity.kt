@@ -73,4 +73,9 @@ class AuthenticationActivity : AppCompatActivity(), AuthenticationListener {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
+
+    override fun adminLoginSuccess() {
+        startActivity(Intent(this, AdminActivity::class.java))
+        finish()
+    }
 }

@@ -7,16 +7,19 @@
 
     <fragment
         android:id="@+id/tiffinServicesListFragment"
-        android:name="com.example.tiffindeliveryapp.TiffinServicesListFragment"
+        android:name="com.example.tiffindeliveryapp.user.TiffinServicesListFragment"
         android:label="fragment_tiffin_services_list"
         tools:layout="@layout/fragment_tiffin_services_list" >
         <action
             android:id="@+id/action_tiffinServicesListFragment_to_serviceDetailsFragment"
             app:destination="@id/serviceDetailsFragment" />
+        <action
+            android:id="@+id/action_tiffinServicesListFragment_to_ordersListFragment2"
+            app:destination="@id/ordersListFragment2" />
     </fragment>
     <fragment
         android:id="@+id/serviceDetailsFragment"
-        android:name="com.example.tiffindeliveryapp.ServiceDetailsFragment"
+        android:name="com.example.tiffindeliveryapp.user.ServiceDetailsFragment"
         android:label="fragment_service_details"
         tools:layout="@layout/fragment_service_details" >
         <action
@@ -25,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/serviceSubscriptionFragment"
-        android:name="com.example.tiffindeliveryapp.ServiceSubscriptionFragment"
+        android:name="com.example.tiffindeliveryapp.user.ServiceSubscriptionFragment"
         android:label="fragment_service_subscription"
         tools:layout="@layout/fragment_service_subscription" >
         <action
@@ -34,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
-        android:name="com.example.tiffindeliveryapp.PaymentFragment"
+        android:name="com.example.tiffindeliveryapp.user.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" >
         <action
@@ -43,7 +46,21 @@
     </fragment>
     <fragment
         android:id="@+id/orderPlacedFragment"
-        android:name="com.example.tiffindeliveryapp.OrderPlacedFragment"
+        android:name="com.example.tiffindeliveryapp.user.OrderPlacedFragment"
         android:label="fragment_order_placed"
         tools:layout="@layout/fragment_order_placed" />
+    <fragment
+        android:id="@+id/ordersListFragment2"
+        android:name="com.example.tiffindeliveryapp.OrdersListFragment"
+        android:label="fragment_orders_list2"
+        tools:layout="@layout/fragment_orders_list2" >
+        <action
+            android:id="@+id/action_ordersListFragment2_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.example.tiffindeliveryapp.OrderDetailsFragment"
+        android:label="fragment_order_details"
+        tools:layout="@layout/fragment_order_details" />
 </navigation>

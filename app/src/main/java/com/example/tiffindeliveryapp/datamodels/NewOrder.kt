@@ -1,0 +1,7 @@
+package com.example.tiffindeliveryapp.datamodels
+
+import java.util.*
+
+data class NewOrder(val tiffinServiceId:String, var serviceName:String, val userId:String, var userName:String, val startDate: Date, val endDate: Date, val tiffinChoice:String, val foodPreference:String, val deliveryAddress:Map<String, String>, val orderCompleted:Boolean, var paymentMethod:String){
+    constructor():this("", "", "","", Date(), Date(), "", "", emptyMap(), false, "")
+}
