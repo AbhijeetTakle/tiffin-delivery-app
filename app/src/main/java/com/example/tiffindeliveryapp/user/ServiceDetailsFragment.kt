@@ -73,6 +73,7 @@ class ServiceDetailsFragment : Fragment() {
         for(s in service.tiffinTypes.keys){
             val tiffinType = TextView(requireContext())
             tiffinType.text = s+": "+service.tiffinTypes.get(s)
+            tiffinType.textSize = 15F
             serviceTiffinTypes.addView(tiffinType)
         }
 
