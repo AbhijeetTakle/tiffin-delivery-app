@@ -51,8 +51,8 @@ class TiffinServicesListFragment : Fragment() {
                 findNavController().navigate(R.id.action_tiffinServicesListFragment_to_serviceDetailsFragment, bundle)
             }
         })
-//        ordersListTab.setOnClickListener {
-//            findNavController().navigate(R.id.)
-//        }
+        ordersListTab.setOnClickListener {
+            findNavController().navigate(R.id.action_tiffinServicesListFragment_to_ordersListFragment2)
+        }
     }
 }

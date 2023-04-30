@@ -75,7 +75,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment2_to_loginAdminFragment)
         }
         loginWithOTP.setOnClickListener {
-            findNavController().navigate((R.id.action_loginFragment2_to_phoneLoginFragment))
+            findNavController().navigate(R.id.action_loginFragment2_to_phoneLoginFragment)
         }
     }
 
