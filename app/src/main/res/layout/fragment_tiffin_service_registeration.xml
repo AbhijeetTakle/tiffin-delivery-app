@@ -4,113 +4,193 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginBottom="@dimen/_10dp"
     tools:context=".admin.TiffinServiceRegisterationFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/_13dp"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tiffin_service_registeration_details"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name:"/>
-    <EditText
-        android:id="@+id/tiffin_service_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name of the Service"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description:"/>
-    <EditText
-        android:id="@+id/tiffin_service_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description of the Service"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Food Preference"/>
-    <RadioButton
-        android:id="@+id/veg_food_pref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Veg"/>
-    <RadioButton
-        android:id="@+id/nonveg_food_pref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Non-Veg"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tiffin Types"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Large Tiffin"/>
-    <EditText
-        android:id="@+id/price_large"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Set Price for Large Tiffin"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Small Tiffin"/>
-    <EditText
-        android:id="@+id/price_small"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Set Price for Small Tiffin"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menu For Today"/>
-    <EditText
-        android:id="@+id/menu_today"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Today's Menu"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Address For Delivery"/>
-    <EditText
-        android:id="@+id/address_line1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Adress line 1"/>
-    <EditText
-        android:id="@+id/address_line2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Adress line 2"/>
-    <EditText
-        android:id="@+id/address_district"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="district" />
-    <EditText
-        android:id="@+id/address_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="State"/>
-    <EditText
-        android:id="@+id/address_pincode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Pincode"/>
-    <Button
-        android:id="@+id/submit_registration_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Submit"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_15sp"
+            android:padding="@dimen/_8dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:background="@drawable/round_btn"
+            android:text="@string/tiffin_service_registeration_details"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sp"
+            android:padding="@dimen/_8dp"
+            android:background="@drawable/card_all_round_corner"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Name:"/>
+            <EditText
+                android:id="@+id/tiffin_service_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Name of the Service"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Description:"/>
+            <EditText
+                android:id="@+id/tiffin_service_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Description of the Service"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sp"
+            android:padding="@dimen/_8dp"
+            android:background="@drawable/card_all_round_corner"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Food Preference"/>
+            <RadioButton
+                android:id="@+id/veg_food_pref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:text="Veg"/>
+            <RadioButton
+                android:id="@+id/nonveg_food_pref"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:text="Non-Veg"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sp"
+            android:padding="@dimen/_8dp"
+            android:background="@drawable/card_all_round_corner"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="Tiffin Types"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Large Tiffin"/>
+            <EditText
+                android:id="@+id/price_large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Set Price for Large Tiffin"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Small Tiffin"/>
+            <EditText
+                android:id="@+id/price_small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Set Price for Small Tiffin"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sp"
+            android:padding="@dimen/_8dp"
+            android:background="@drawable/card_all_round_corner"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Menu For Today"/>
+            <EditText
+                android:id="@+id/menu_today"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Today's Menu"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sp"
+            android:padding="@dimen/_8dp"
+            android:background="@drawable/card_all_round_corner"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Address For Delivery"/>
+            <EditText
+                android:id="@+id/address_line1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Adress line 1"/>
+            <EditText
+                android:id="@+id/address_line2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Adress line 2"/>
+            <EditText
+                android:id="@+id/address_district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="district" />
+            <EditText
+                android:id="@+id/address_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="State"/>
+            <EditText
+                android:id="@+id/address_pincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sp"
+                android:hint="Pincode"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/submit_registration_details"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_140dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_14dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_btn"
+            android:text="Submit"/>
     </LinearLayout>
 </ScrollView>

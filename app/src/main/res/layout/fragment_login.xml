@@ -33,8 +33,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <EditText
@@ -44,8 +44,8 @@
                 android:autofillHints="password"
                 android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/login_username"
+                app:layout_constraintStart_toStartOf="@+id/login_username"
                 app:layout_constraintTop_toBottomOf="@+id/login_username" />
 
             <EditText
@@ -56,8 +56,8 @@
                 android:autofillHints="emailAddress"
                 android:hint="@string/login_username_hint"
                 android:inputType="textEmailAddress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <ImageButton
@@ -87,31 +87,32 @@
                 android:text="@string/login_button_title"
                 android:textSize="@dimen/_12sp"
                 android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/login_password"
                 app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/login_password"
                 app:layout_constraintTop_toBottomOf="@+id/login_password" />
 
             <TextView
                 android:id="@+id/create_new_user_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_89dp"
-                android:layout_marginTop="@dimen/_24dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="32dp"
                 android:text="@string/register_new_user_text"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/login_btn"
                 app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
             <TextView
                 android:id="@+id/register_user_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_6dp"
-                android:layout_marginTop="@dimen/_24dp"
+                android:layout_marginTop="32dp"
                 android:text="@string/register_btn_title"
                 android:textColor="@color/teal_700"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/create_new_user_title"
+                app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                app:layout_constraintHorizontal_bias="0.116"
+                app:layout_constraintStart_toEndOf="@+id/create_new_user_title"
                 app:layout_constraintTop_toBottomOf="@id/login_btn" />
 
             <TextView
@@ -119,12 +120,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12dp"
-                android:layout_marginBottom="@dimen/_10dp"
                 android:text="@string/admin_login_btn_title"
                 android:textColor="@color/teal_700"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                app:layout_constraintStart_toStartOf="@+id/login_btn"
                 app:layout_constraintTop_toBottomOf="@+id/create_new_user_title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
