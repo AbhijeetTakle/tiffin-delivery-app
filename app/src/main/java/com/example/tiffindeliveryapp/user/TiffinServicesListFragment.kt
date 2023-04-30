@@ -52,7 +52,7 @@ class TiffinServicesListFragment : Fragment() {
             }
         })
         ordersListTab.setOnClickListener {
-            findNavController().navigate(R.id.)
+            findNavController().navigate(R.id.action_tiffinServicesListFragment_to_ordersListFragment2)
         }
     }
 }

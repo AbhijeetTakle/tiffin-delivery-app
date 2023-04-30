@@ -53,5 +53,14 @@
         android:id="@+id/ordersListFragment2"
         android:name="com.example.tiffindeliveryapp.OrdersListFragment"
         android:label="fragment_orders_list2"
-        tools:layout="@layout/fragment_orders_list2" />
+        tools:layout="@layout/fragment_orders_list2" >
+        <action
+            android:id="@+id/action_ordersListFragment2_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.example.tiffindeliveryapp.OrderDetailsFragment"
+        android:label="fragment_order_details"
+        tools:layout="@layout/fragment_order_details" />
 </navigation>
