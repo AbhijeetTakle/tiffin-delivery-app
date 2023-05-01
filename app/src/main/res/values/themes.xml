@@ -13,7 +13,7 @@
         <item name="android:statusBarColor">@color/Orange_theme</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="Theme.MainTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.MainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/Orange</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
