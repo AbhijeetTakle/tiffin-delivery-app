@@ -1,144 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".user.ServiceDetailsFragment"
-    android:layout_margin="15dp"
-    android:orientation="vertical">
+    android:layout_margin="@dimen/_13dp"
+    android:orientation="vertical"
+    tools:context=".user.ServiceDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_heading_container"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="@dimen/_138dp">
 
         <FrameLayout
             android:id="@+id/service_image_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/service_info_container"
             app:layout_constraintHorizontal_weight="2"
-            app:layout_constraintEnd_toStartOf="@id/service_info_container">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
-                android:background="@drawable/item_list_img"
                 android:id="@+id/food_service_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/food"
+                android:background="@drawable/item_list_img"
+                android:clipToOutline="true"
                 android:scaleType="centerCrop"
-                android:clipToOutline="true"/>
+                android:src="@drawable/food" />
         </FrameLayout>
+
         <LinearLayout
             android:id="@+id/service_info_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:background="@drawable/card_2_right_round_corner"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toEndOf="@id/service_image_container"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/card_2_right_round_corner">
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:id="@+id/food_service_title"
                 android:layout_width="match_parent"
-                android:layout_margin="5dp"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_4dp"
+                android:textSize="@dimen/_18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/food_service_description"
-                android:layout_margin="5dp"
-                android:textSize="15sp"
-                android:textStyle="italic"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_4dp"
+                android:textSize="@dimen/_11sp"
+                android:textStyle="italic" />
+
             <TextView
                 android:id="@+id/food_service_subscriber_count"
-                android:layout_margin="5dp"
-                android:textSize="15sp"
-                android:gravity="center_vertical"
                 android:layout_width="match_parent"
+                android:layout_height="@dimen/_19dp"
+                android:layout_margin="@dimen/_4dp"
                 android:drawableStart="@drawable/ic_subscriber_count"
-                android:layout_height="30dp"/>
+                android:gravity="center_vertical"
+                android:textSize="@dimen/_11sp" />
+
             <TextView
                 android:id="@+id/food_service_rating"
-                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
-                android:gravity="center_vertical"
-                android:drawableStart="@drawable/ic_rating"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_4dp"
                 android:background="@color/green"
-                android:layout_height="wrap_content"/>
+                android:drawableStart="@drawable/ic_rating"
+                android:gravity="center_vertical" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:id="@+id/service_tiffin_types"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:padding="@dimen/_8dp"
         android:background="@drawable/card_all_round_corner"
-        android:layout_marginTop="15dp">
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tiffin_types_title"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/_15sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/card_2_right_round_corner"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="@dimen/_10sp"
+        android:padding="@dimen/_8dp"
+        android:background="@drawable/card_all_round_corner"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tiffin_service_menu_title"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/_15sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/service_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"/>
+            android:textSize="@dimen/_12sp" />
 
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:id="@+id/service_reviews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_10dp"
+            android:padding="@dimen/_8dp"
             android:background="@drawable/card_all_round_corner"
-            android:layout_marginTop="15dp">
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tiffin_service_customer_review_title"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/_15sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
-    </LinearLayout>
+        android:layout_weight="1"
+        android:orientation="vertical"></LinearLayout>
+
     <Button
         android:id="@+id/subscribe_service"
-        android:layout_width="150dp"
+        android:layout_width="@dimen/_140dp"
+        android:layout_margin="@dimen/_2dp"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:layout_gravity="center_horizontal|bottom"
         android:background="@drawable/round_btn"
-        android:text="@string/subscribe_service"
-        />
+        android:text="@string/subscribe_service" />
 
 </LinearLayout>

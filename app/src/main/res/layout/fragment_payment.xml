@@ -5,29 +5,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".user.PaymentFragment">
+    android:layout_margin="@dimen/_13dp"
+    tools:context=".user.PaymentFragment"
+    android:background="@color/white">
     <TextView
         android:id="@+id/total_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order Total: "/>
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose Payment Methods"/>
-    <RadioGroup
-        android:id="@+id/payment_methods"
+        android:textAlignment="center"
+        android:padding="@dimen/_8dp"
+        android:textSize="@dimen/_13sp"
+        android:textStyle="bold"
+        android:background="@drawable/card_all_round_corner"
+        android:text="Order Total: "
+        android:layout_marginTop="@dimen/_10sp"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/payment_method_cash_on_delivery"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_all_round_corner"
+        android:padding="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_10sp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Payment Methods"
+            android:textSize="@dimen/_13sp"
+            android:textStyle="bold" />
+        <RadioGroup
+            android:id="@+id/payment_methods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/payment_method_cash_on_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cash On Delivery"
+                android:textSize="@dimen/_11sp"/>
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cash On Delivery"/>
-    </RadioGroup>
+            android:src="@drawable/cod"/>
+    </LinearLayout>
     <Button
         android:id="@+id/place_order"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_140dp"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        android:background="@drawable/round_btn"
         android:text="Place Order"/>
 </LinearLayout>
