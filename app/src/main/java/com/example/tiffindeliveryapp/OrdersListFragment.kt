@@ -57,6 +57,7 @@ class OrdersListFragment : Fragment() {
                 }
                 for(doc in docs.documents){
                     val order = doc.toObject(NewOrder::class.java)
+                    order?.orderId = doc.id
                     db.collection("TiffinServices")
                         .get()
                         .addOnSuccessListener { servs ->
@@ -92,7 +93,7 @@ class OrdersListFragment : Fragment() {
     private fun setContactClickAction() {
         ordersListAdapter.setOnItemClickListener(object : OrdersListAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                val bundle = bundleOf()
+                val bundle = bundleOf("orderID" to ordersListAdapter.ordersList.get(position).orderId)
                 findNavController().navigate(
                     R.id.action_ordersListFragment2_to_orderDetailsFragment,
                     bundle
