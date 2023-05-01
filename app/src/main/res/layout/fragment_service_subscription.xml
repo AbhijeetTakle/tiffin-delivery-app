@@ -154,6 +154,26 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_11sp"/>
             </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_all_round_corner"
+            android:padding="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Order (may cost extra)"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/custom_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="custom order"
+                android:textSize="@dimen/_11sp"/>
+        </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
