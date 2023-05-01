@@ -22,4 +22,7 @@
     <string name="subscribe_service">Subscribe</string>
     <string name="subscription_type_title">Choose Subscription Type</string>
     <string name="proceed">Proceed</string>
+    <string name="admin_login_btn_title">Login as Admin</string>
+    <string name="register_tiffin_service">Register Your Service</string>
+    <string name="tiffin_service_registeration_details">Fill Information about your service</string>
 </resources>

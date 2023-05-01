@@ -5,128 +5,232 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".ServiceSubscriptionFragment">
-
-    <TextView
+    android:layout_margin="@dimen/_13dp"
+    tools:context=".user.ServiceSubscriptionFragment">
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/subscription_type_title"/>
-    <RadioGroup
-        android:id="@+id/subscription_type_choices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/day_delivery"
-            android:layout_width="wrap_content"
+        tools:ignore="ScrollViewCount">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1 -day Order"/>
-        <RadioButton
-            android:id="@+id/create_subscription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="create subscription"/>
-    </RadioGroup>
-    <LinearLayout
-        android:id="@+id/subscription_start_end_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/subscription_start_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_margin="20dp"
-            android:textSize="20sp"
-            android:text="13-4-2023"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_margin="5dp"/>
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
 
-        <TextView
-            android:id="@+id/subscription_end_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_margin="20dp"
-            android:textSize="20sp"
-            android:text="13-4-2023"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/one_day_delivery_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/one_day_delivery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_margin="20dp"
-            android:textSize="20sp"
-            android:text="13-4-2023"/>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choose Tiffin Types"/>
-    <RadioGroup
-        android:id="@+id/tiffin_type_choices"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </RadioGroup>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Food Preferences"/>
-    <RadioGroup
-        android:id="@+id/food_preferences"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_all_round_corner"
+                android:padding="@dimen/_8dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subscription_type_title"
+                    android:textSize="@dimen/_13sp"
+                    android:textStyle="bold"/>
+                <RadioGroup
+                    android:id="@+id/subscription_type_choices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/day_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_11sp"
+                        android:text="1 - Day Order"/>
+                    <RadioButton
+                        android:id="@+id/create_subscription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:textSize="@dimen/_11sp"
+                        android:text="Create Subscription"/>
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/subscription_start_end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/card_all_round_corner"
+                android:padding="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10sp"
+                android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Address For Delivery"/>
-    <EditText
-        android:id="@+id/address_line1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Adress line 1"/>
-    <EditText
-        android:id="@+id/address_line2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Adress line 2"/>
-    <EditText
-        android:id="@+id/address_district"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="district" />
-    <EditText
-        android:id="@+id/address_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="State"/>
-    <EditText
-        android:id="@+id/address_pincode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Pincode"/>
-<Button
-    android:id="@+id/proceed_to_payment"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/proceed"/>
+                <ImageView
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
+                    android:src="@drawable/calendar"/>
+                <TextView
+                    android:id="@+id/subscription_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:text="13-4-2023"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_margin="5dp"/>
+
+                <TextView
+                    android:id="@+id/subscription_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:text="13-4-2023"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/one_day_delivery_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:background="@drawable/card_all_round_corner"
+                android:padding="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10sp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
+                    android:src="@drawable/calendar"/>
+                <TextView
+                    android:id="@+id/one_day_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:text="13-4-2023"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_all_round_corner"
+                android:padding="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Tiffin Types"
+                    android:textSize="@dimen/_13sp"
+                    android:textStyle="bold"/>
+                <RadioGroup
+                    android:id="@+id/tiffin_type_choices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_11sp">
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_all_round_corner"
+                android:padding="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food Preferences"
+                    android:textSize="@dimen/_13sp"
+                    android:textStyle="bold"/>
+                <RadioGroup
+                    android:id="@+id/food_preferences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_11sp"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_all_round_corner"
+            android:padding="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_10sp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Order (may cost extra)"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/custom_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="custom order"
+                android:textSize="@dimen/_11sp"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_all_round_corner"
+                android:padding="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address For Delivery"
+                    android:textSize="@dimen/_13sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/address_line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Adress line 1"
+                    android:textSize="@dimen/_11sp"/>
+                <EditText
+                    android:id="@+id/address_line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Adress line 2"
+                    android:textSize="@dimen/_11sp"/>
+                <EditText
+                    android:id="@+id/address_district"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="district"
+                    android:textSize="@dimen/_11sp"/>
+                <EditText
+                    android:id="@+id/address_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="State"
+                    android:textSize="@dimen/_11sp"/>
+                <EditText
+                    android:id="@+id/address_pincode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pincode"
+                    android:textSize="@dimen/_11sp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/proceed_to_payment"
+                android:layout_width="@dimen/_140dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8dp"
+                android:background="@drawable/round_btn"
+                android:text="@string/proceed"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>
