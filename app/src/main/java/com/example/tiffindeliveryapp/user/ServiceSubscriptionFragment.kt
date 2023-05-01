@@ -110,6 +110,7 @@ class ServiceSubscriptionFragment : Fragment() {
             val addressState = view.findViewById<EditText>(R.id.address_state)
             val addressPincode = view.findViewById<EditText>(R.id.address_pincode)
             val address = HashMap<String, String>()
+            val customOrder = view.findViewById<EditText>(R.id.custom_order).text.toString()
             address.put(addressLine1.hint.toString(), addressLine1.text.toString())
             address.put(addressLine2.hint.toString(), addressLine2.text.toString())
             address.put(addressDistrict.hint.toString(), addressDistrict.text.toString())
@@ -127,7 +128,8 @@ class ServiceSubscriptionFragment : Fragment() {
                             preference,
                             address,
                             false,
-                            "COD"
+                            "COD",
+                            customOrder
                         )
                     }
                     saveOrder(order)
@@ -142,7 +144,8 @@ class ServiceSubscriptionFragment : Fragment() {
                             preference,
                             address,
                             false,
-                            "COD"
+                            "COD",
+                            customOrder
                         )
                     }
                 saveOrder(order)
