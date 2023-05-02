@@ -53,16 +53,43 @@
             android:textSize="@dimen/_13sp"
             android:textStyle="bold" />
         <TextView
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username"
             android:textSize="@dimen/_11sp"/>
         <TextView
+            android:id="@+id/address_line1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="address"
             android:textSize="@dimen/_11sp"/>
         <TextView
+            android:id="@+id/address_line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="address"
+            android:textSize="@dimen/_11sp"/>
+        <TextView
+            android:id="@+id/address_district"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="address"
+            android:textSize="@dimen/_11sp"/>
+        <TextView
+            android:id="@+id/address_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="address"
+            android:textSize="@dimen/_11sp"/>
+        <TextView
+            android:id="@+id/address_pincode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="address"
+            android:textSize="@dimen/_11sp"/>
+        <TextView
+            android:id="@+id/email_or_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="phone_number or email"
@@ -156,12 +183,14 @@
             android:padding="@dimen/_8dp">
 
             <TextView
+                android:id="@+id/gst"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0.0 rupee"
                 android:textSize="@dimen/_11sp" />
 
             <TextView
+                android:id="@+id/total_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5dp"

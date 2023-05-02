@@ -44,7 +44,8 @@ class OrdersListFragment : Fragment() {
 
         adminOrdersListAdapter.setOnItemClickListener(object : AdminOrdersAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                val bundle = bundleOf()
+                val bundle = bundleOf("orderId" to adminOrdersListAdapter.ordersList.get(position).orderId)
+                Log.d("TAG", "onItemClick: ${adminOrdersListAdapter.ordersList.get(position)}")
                 findNavController().navigate(
                     R.id.action_ordersListFragment_to_adminOrderDetailsFragment,
                     bundle
@@ -60,7 +61,6 @@ class OrdersListFragment : Fragment() {
             .get()
             .addOnSuccessListener {
                 val service = it.documents.get(0).toObject(Admin::class.java)?.tiffinServiceId
-                Log.d("TAG", "checkForTiffinService: ${service}")
                 if (service!=null){
                     getOrders(service as String)
                 }else{
@@ -84,6 +84,7 @@ class OrdersListFragment : Fragment() {
                 }
                 for(doc in docs.documents){
                     val order = doc.toObject(NewOrder::class.java)
+                    order?.orderId = doc.id
                     db.collection("TiffinServices")
                         .get()
                         .addOnSuccessListener { servs ->
