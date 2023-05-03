@@ -45,7 +45,6 @@ class OrdersListFragment : Fragment() {
         adminOrdersListAdapter.setOnItemClickListener(object : AdminOrdersAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 val bundle = bundleOf("orderId" to adminOrdersListAdapter.ordersList.get(position).orderId)
-                Log.d("TAG", "onItemClick: ${adminOrdersListAdapter.ordersList.get(position)}")
                 findNavController().navigate(
                     R.id.action_ordersListFragment_to_adminOrderDetailsFragment,
                     bundle

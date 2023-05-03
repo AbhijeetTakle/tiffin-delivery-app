@@ -41,7 +41,11 @@ class OrdersListAdapter(var ordersList:ArrayList<NewOrder>): Adapter<OrdersListA
 
     override fun onBindViewHolder(holder: OrderListViewHolder, position: Int) {
         holder.serviceTitle.text = ordersList[position].serviceName
-        holder.orderStatus.text = if(ordersList[position].orderCompleted) "Completed" else "Not Completed"
+        if(ordersList[position].canceled){
+            holder.orderStatus.text = "Cancelled"
+        }else{
+            holder.orderStatus.text = if(ordersList[position].orderCompleted) "Completed" else "Not Completed"
+        }
     }
 
     override fun getItemCount(): Int {

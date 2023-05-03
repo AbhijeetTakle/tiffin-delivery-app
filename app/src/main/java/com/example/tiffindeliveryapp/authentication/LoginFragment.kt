@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
 import com.example.tiffindeliveryapp.AuthenticationActivity
 import com.example.tiffindeliveryapp.R
@@ -18,8 +20,9 @@ import com.example.tiffindeliveryapp.utils.AuthenticationListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlin.math.log
 
-class LoginFragment : Fragment() {
+class   LoginFragment : Fragment() {
 
     private lateinit var loginUsername:EditText
     private lateinit var loginPassword:EditText
@@ -30,6 +33,7 @@ class LoginFragment : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mAuthListener: AuthenticationListener
     private lateinit var loginAsAdmin:TextView
+    private lateinit var progress:ProgressBar
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +45,7 @@ class LoginFragment : Fragment() {
         login = view.findViewById(R.id.login_btn)
         registerNewUser = view.findViewById(R.id.register_user_link)
         loginAsAdmin = view.findViewById(R.id.login_as_admin)
+        progress = view.findViewById(R.id.rating)
         mAuth = Firebase.auth
         if (mAuth.currentUser != null){
             mAuth.signOut()
@@ -54,6 +59,8 @@ class LoginFragment : Fragment() {
             val username = loginUsername.text.toString().trim()
             val password = loginPassword.text.toString().trim()
             if(checkValidInput()){
+                progress.isGone = false
+                login.isClickable = false
                 mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener {
                     if(it.isSuccessful){
                         try {
@@ -64,6 +71,8 @@ class LoginFragment : Fragment() {
                         }
                     }else{
                         Toast.makeText(context,"${it.exception?.message.toString()}", Toast.LENGTH_SHORT).show()
+                        progress.isGone = true
+                        login.isClickable = true
                     }
                 }
             }

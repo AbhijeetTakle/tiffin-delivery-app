@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
@@ -67,7 +68,7 @@ class ServiceDetailsFragment : Fragment() {
         serviceTitle.text = service.title
         serviceDescription.text = service.description
         serviceSubscriberCount.text = service.subscriberCount.toString()+" subscribers"
-        serviceRating.text = service.rating.toString()
+        serviceRating.text = String.format("%.1f ", service.rating)
         serviceMenu.text = service.todaysMenu
 
         for(s in service.tiffinTypes.keys){

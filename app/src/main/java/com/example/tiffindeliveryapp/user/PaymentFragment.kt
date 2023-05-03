@@ -69,8 +69,25 @@ class PaymentFragment : Fragment() {
 
     private fun setCheckoutPrice(){
         val diff = order.endDate.time - order.startDate.time
-        val days = TimeUnit.MILLISECONDS.toDays(diff)
-        totalPrice.text = "${totalPrice.text}${40*(days+1)}"
+        val days = TimeUnit.MILLISECONDS.toDays(diff)+1
+        val db = Firebase.firestore
+        db.collection("TiffinServices")
+            .document(order.tiffinServiceId)
+            .get()
+            .addOnSuccessListener {servs ->
+                var price:Int = 0
+                if(order.tiffinChoice.contains("Large")){
+                    (servs.get("tiffinTypes") as HashMap<String, String>).get("Large Tiffin")?.let {
+                        price = it.toInt()
+                        totalPrice.text = "Total Price: ${days*price}"
+                    }
+                }else{
+                    (servs.get("tiffinTypes") as HashMap<String, String>).get("Small Tiffin")?.let {
+                        price = it.toInt()
+                        totalPrice.text = "${days*price}"
+                    }
+                }
+            }
     }
 
     private fun init(view: View) {

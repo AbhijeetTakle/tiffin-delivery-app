@@ -6,8 +6,20 @@
     android:layout_height="match_parent"
     android:layout_marginHorizontal="@dimen/_13dp"
     tools:context=".AdminOrderDetailsFragment">
-
-    <ImageView
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
         android:id="@+id/food_service_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_180dp"
@@ -18,8 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
+        <TextView
         android:id="@+id/mess_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,8 +45,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/food_service_image"
         app:layout_constraintTop_toBottomOf="@+id/food_service_image" />
-
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,7 +105,7 @@
             android:text="phone_number or email"
             android:textSize="@dimen/_11sp"/>
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,20 +115,17 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
         app:layout_constraintStart_toStartOf="@+id/linearLayout8"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
-
         <LinearLayout
             android:layout_width="@dimen/_200dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/_8dp">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tiffin types"
                 android:textSize="@dimen/_13sp"
                 android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/tiffin_type"
                 android:layout_width="match_parent"
@@ -126,13 +133,11 @@
                 android:text="small tiffin"
                 android:textSize="@dimen/_11sp" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="@dimen/_80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/_8dp">
-
             <TextView
                 android:id="@+id/tiffin_price"
                 android:layout_width="match_parent"
@@ -142,8 +147,7 @@
                 android:textSize="@dimen/_11sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -153,42 +157,35 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
-
         <LinearLayout
             android:layout_width="@dimen/_200dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/_8dp">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="GST"
                 android:textSize="@dimen/_13sp"
                 android:textStyle="bold" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="item Total"
                 android:textSize="@dimen/_13sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="@dimen/_80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/_8dp">
-
             <TextView
                 android:id="@+id/gst"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0.0 rupee"
                 android:textSize="@dimen/_11sp" />
-
             <TextView
                 android:id="@+id/total_price"
                 android:layout_width="match_parent"
@@ -198,8 +195,7 @@
                 android:textSize="@dimen/_11sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <Button
+        <Button
         android:id="@+id/delivered"
         android:layout_width="@dimen/_120dp"
         android:layout_height="wrap_content"
@@ -211,8 +207,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cancel_order"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
-
-    <Button
+        <Button
         android:id="@+id/cancel_order"
         android:layout_width="@dimen/_120dp"
         android:layout_height="wrap_content"
@@ -224,5 +219,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,7 +36,7 @@ class TiffinServiceListAdapter(var services:ArrayList<TiffinService>):Adapter<Ti
         holder.serviceTitle.text = services[position].title
         holder.serviceDescription.text = services[position].description
         holder.serviceSubscriberCount.text = services[position].subscriberCount.toString()+" subscribers"
-        holder.serviceRating.text = services[position].rating.toString()
+        holder.serviceRating.text = String.format("%.1f ",services[position].rating)
     }
 
     override fun getItemCount(): Int {

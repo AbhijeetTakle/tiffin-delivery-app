@@ -1,32 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".OrderDetailsFragment">
-
-    <Button
-        android:id="@+id/order_cancel"
+    <ProgressBar
+        android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"/>
-    <EditText
-        android:id="@+id/review"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ScrollView
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <RatingBar
-        android:id="@+id/rating"
-        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numStars="5"
-        android:stepSize="1" />
-    <Button
-        android:id="@+id/add_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add review"/>
+        android:layout_marginHorizontal="@dimen/_13dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/food_service_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180dp"
+                android:background="@drawable/bottom_round_corner"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/food"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/mess_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_btn"
+                android:padding="@dimen/_15dp"
+                android:text="Mess name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/food_service_image"
+                app:layout_constraintEnd_toEndOf="@+id/food_service_image"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/food_service_image"
+                app:layout_constraintTop_toBottomOf="@+id/food_service_image" />
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13dp"
+                android:background="@drawable/card_all_round_corner"
+                android:orientation="vertical"
+                android:padding="@dimen/_8dp"
+                app:layout_constraintEnd_toEndOf="@+id/food_service_image"
+                app:layout_constraintStart_toStartOf="@+id/food_service_image"
+                app:layout_constraintTop_toBottomOf="@+id/mess_name">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order Details"
+                    android:textSize="@dimen/_13sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textSize="@dimen/_11sp"/>
+                <TextView
+                    android:id="@+id/address_line1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="address"
+                    android:textSize="@dimen/_11sp"/>
+                <TextView
+                    android:id="@+id/address_line2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="address"
+                    android:textSize="@dimen/_11sp"/>
+                <TextView
+                    android:id="@+id/address_district"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="address"
+                    android:textSize="@dimen/_11sp"/>
+                <TextView
+                    android:id="@+id/address_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="address"
+                    android:textSize="@dimen/_11sp"/>
+                <TextView
+                    android:id="@+id/address_pincode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="address"
+                    android:textSize="@dimen/_11sp"/>
+                <TextView
+                    android:id="@+id/email_or_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="phone_number or email"
+                    android:textSize="@dimen/_11sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13dp"
+                android:background="@drawable/card_all_round_corner"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout8"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout8"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+                <LinearLayout
+                    android:layout_width="@dimen/_200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiffin types"
+                        android:textSize="@dimen/_13sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tiffin_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="small tiffin"
+                        android:textSize="@dimen/_11sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/_80dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8dp">
+                    <TextView
+                        android:id="@+id/tiffin_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16dp"
+                        android:text="40 rupee"
+                        android:textSize="@dimen/_11sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13dp"
+                android:background="@drawable/card_all_round_corner"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout6"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+                <LinearLayout
+                    android:layout_width="@dimen/_200dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GST"
+                        android:textSize="@dimen/_13sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="item Total"
+                        android:textSize="@dimen/_13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/_80dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8dp">
+                    <TextView
+                        android:id="@+id/gst"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0.0 rupee"
+                        android:textSize="@dimen/_11sp" />
+                    <TextView
+                        android:id="@+id/total_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:text="40 rupee"
+                        android:textSize="@dimen/_11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <Button
+            android:id="@+id/order_cancel"
+            android:layout_width="@dimen/_140dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_btn"
+            android:layout_marginTop="@dimen/_13dp"
+            android:padding="@dimen/_5dp"
+            android:text="Cancel order"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_13dp"
+            android:background="@drawable/card_all_round_corner"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_8dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_13sp"
+                android:textStyle="bold"
+                android:text="Feedback"/>
+            <EditText
+                android:id="@+id/review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="add review here"
+                android:textColorHint="@color/Grey"
+                android:textSize="@dimen/_11sp"/>
 
-</LinearLayout>
+            <RatingBar
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13dp"
+                android:numStars="5"
+                android:stepSize="1"
+                android:progressTint="@color/Orange_theme"/>
+            <Button
+                android:id="@+id/add_review"
+                android:layout_width="@dimen/_110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13dp"
+                android:background="@drawable/round_btn"
+                android:text="add review"/>
+        </LinearLayout>
+    </LinearLayout></ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

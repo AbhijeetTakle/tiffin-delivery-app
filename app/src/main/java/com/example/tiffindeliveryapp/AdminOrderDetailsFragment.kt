@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -26,6 +29,9 @@ class AdminOrderDetailsFragment : Fragment() {
     private lateinit var tiffinPrice:TextView
     private lateinit var gst:TextView
     private lateinit var totalPrice:TextView
+    private lateinit var serviceName:TextView
+    private lateinit var progress:ProgressBar
+    private lateinit var container:ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,9 +58,10 @@ class AdminOrderDetailsFragment : Fragment() {
             .get()
             .addOnSuccessListener { ordr ->
                 db.collection("users")
-                    .document(ordr.get("userId").toString())
+                    .whereEqualTo("uid", ordr.get("userId"))
                     .get()
-                    .addOnSuccessListener { usr ->
+                    .addOnSuccessListener { usrs ->
+                        val usr = usrs.documents[0]
                         username.text = usr.get("username").toString()
                         val address = ordr.get("deliveryAddress") as HashMap<String, String>
                         addressLine1.text = address.get("Adress line 1")
@@ -76,9 +83,13 @@ class AdminOrderDetailsFragment : Fragment() {
                                 }
                                 tiffinPrice.text = price.toString()
                                 gst.text = "${0.0}"
+                                serviceName.text = servs.get("title").toString()
                                 val diff = (((ordr.get("endDate")as Timestamp).toDate()).time - ((ordr.get("startDate") as Timestamp).toDate()).time)
-                                val days = TimeUnit.MILLISECONDS.toDays(diff)
-                                totalPrice.text = (days* price!!).toString()
+                                val days = TimeUnit.MILLISECONDS.toDays(diff)+1
+                                totalPrice.text = "${days}x${price}: ${days* price}"
+                                progress.isGone = true
+                                container.isGone = false
+
                             }
                     }
             }
@@ -96,5 +107,8 @@ class AdminOrderDetailsFragment : Fragment() {
         tiffinPrice = view.findViewById(R.id.tiffin_price)
         gst = view.findViewById(R.id.gst)
         totalPrice = view.findViewById(R.id.total_price)
+        serviceName = view.findViewById(R.id.mess_name)
+        progress = view.findViewById(R.id.progress_bar)
+        container = view.findViewById(R.id.container)
     }
 }

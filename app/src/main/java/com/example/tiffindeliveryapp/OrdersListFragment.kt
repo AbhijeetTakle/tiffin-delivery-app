@@ -80,7 +80,7 @@ class OrdersListFragment : Fragment() {
                                                 ordersListAdapter.onNewOrderAdd(it, orders.size)
                                             }
                                         }
-                                        if(docs.size() == orderNums++){
+                                        if(docs.size() == ++orderNums){
                                             progrss.isGone = true
                                         }
                                     }
