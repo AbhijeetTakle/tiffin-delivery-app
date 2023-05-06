@@ -48,7 +48,13 @@
         android:id="@+id/orderPlacedFragment"
         android:name="com.example.tiffindeliveryapp.user.OrderPlacedFragment"
         android:label="fragment_order_placed"
-        tools:layout="@layout/fragment_order_placed" />
+        tools:layout="@layout/fragment_order_placed" >
+        <action
+            android:id="@+id/action_orderPlacedFragment_to_tiffinServicesListFragment"
+            app:destination="@id/tiffinServicesListFragment"
+            app:popUpTo="@id/tiffinServicesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/ordersListFragment2"
         android:name="com.example.tiffindeliveryapp.OrdersListFragment"

@@ -39,17 +39,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <EditText
-                android:id="@+id/login_password"
-                android:layout_width="@dimen/_270dp"
-                android:layout_height="@dimen/_50dp"
-                android:autofillHints="password"
-                android:hint="@string/login_password_hint"
-                android:inputType="textPassword"
-                app:layout_constraintEnd_toEndOf="@+id/login_username"
-                app:layout_constraintStart_toStartOf="@+id/login_username"
-                app:layout_constraintTop_toBottomOf="@+id/login_username" />
-
-            <EditText
                 android:id="@+id/login_username"
                 android:layout_width="@dimen/_270dp"
                 android:layout_height="@dimen/_50dp"
@@ -60,6 +49,16 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="@dimen/_270dp"
+                android:layout_height="@dimen/_50dp"
+                android:autofillHints="password"
+                android:hint="@string/login_password_hint"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/login_username"
+                app:layout_constraintStart_toStartOf="@+id/login_username"
+                app:layout_constraintTop_toBottomOf="@+id/login_username" />
 
             <ImageButton
                 android:id="@+id/login_with_otp"
