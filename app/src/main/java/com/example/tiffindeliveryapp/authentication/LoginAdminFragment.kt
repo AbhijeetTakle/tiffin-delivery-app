@@ -20,8 +20,6 @@ class LoginAdminFragment : Fragment() {
     private lateinit var loginUsername: EditText
     private lateinit var loginPassword: EditText
     private lateinit var login: Button
-    private lateinit var loginWithOTP: ImageButton
-    private lateinit var loginWithGoogle: ImageButton
     private lateinit var registerNewUser: TextView
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mAuthListener: AuthenticationListener
@@ -32,7 +30,6 @@ class LoginAdminFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login_admin, container, false)
         loginUsername = view.findViewById(R.id.login_username)
         loginPassword = view.findViewById(R.id.login_password)
-        loginWithOTP = view.findViewById(R.id.login_with_otp)
         login = view.findViewById(R.id.login_btn)
         registerNewUser = view.findViewById(R.id.register_user_link)
         mAuth = Firebase.auth

@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -27,8 +26,7 @@ class   LoginFragment : Fragment() {
     private lateinit var loginUsername:EditText
     private lateinit var loginPassword:EditText
     private lateinit var login:Button
-    private lateinit var loginWithOTP:ImageButton
-    private lateinit var loginWithGoogle: ImageButton
+    private lateinit var loginWithOTP:Button
     private lateinit var registerNewUser:TextView
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mAuthListener: AuthenticationListener

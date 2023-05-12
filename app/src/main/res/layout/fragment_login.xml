@@ -10,9 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -49,6 +51,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/textView"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
+
             <EditText
                 android:id="@+id/login_password"
                 android:layout_width="@dimen/_270dp"
@@ -60,72 +63,98 @@
                 app:layout_constraintStart_toStartOf="@+id/login_username"
                 app:layout_constraintTop_toBottomOf="@+id/login_username" />
 
-            <ImageButton
-                android:id="@+id/login_with_otp"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@color/black"
-                app:layout_constraintBottom_toTopOf="@id/login_btn"
-                app:layout_constraintEnd_toStartOf="@id/login_with_google"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <ImageButton
-                android:id="@+id/login_with_google"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@color/teal_700"
-                app:layout_constraintBottom_toTopOf="@id/login_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/login_with_otp" />
 
             <Button
                 android:id="@+id/login_btn"
                 android:layout_width="@dimen/_200dp"
                 android:layout_height="@dimen/_42dp"
-                android:layout_marginTop="@dimen/_40dp"
+                android:layout_marginTop="@dimen/_20dp"
                 android:background="@drawable/round_btn"
                 android:text="@string/login_button_title"
-                android:textSize="@dimen/_12sp"
                 android:textAllCaps="false"
+                android:textSize="@dimen/_12sp"
                 app:layout_constraintEnd_toEndOf="@+id/login_password"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="@+id/login_password"
                 app:layout_constraintTop_toBottomOf="@+id/login_password" />
 
-            <TextView
-                android:id="@+id/create_new_user_title"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/register_new_user_text"
-                app:layout_constraintStart_toStartOf="@+id/login_btn"
-                app:layout_constraintTop_toBottomOf="@+id/login_btn" />
-
-            <TextView
-                android:id="@+id/register_user_link"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/register_btn_title"
-                android:textColor="@color/teal_700"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/login_btn"
-                app:layout_constraintHorizontal_bias="0.116"
-                app:layout_constraintStart_toEndOf="@+id/create_new_user_title"
-                app:layout_constraintTop_toBottomOf="@id/login_btn" />
-
-            <TextView
-                android:id="@+id/login_as_admin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_12dp"
-                android:text="@string/admin_login_btn_title"
-                android:textColor="@color/teal_700"
-                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="@+id/login_btn"
                 app:layout_constraintStart_toStartOf="@+id/login_btn"
-                app:layout_constraintTop_toBottomOf="@+id/create_new_user_title" />
+                app:layout_constraintTop_toBottomOf="@+id/login_btn">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/Lofin_with_Phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_13sp"
+                        android:text="Login with Phone?"
+                        app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                        app:layout_constraintStart_toStartOf="@+id/login_btn"
+                        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+                    <Button
+                        android:id="@+id/login_with_otp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="@dimen/_3dp"
+                        android:background="@drawable/phone"
+                        app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                        app:layout_constraintStart_toEndOf="@+id/Lofin_with_Phone"
+                        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/create_new_user_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_13sp"
+                        android:text="@string/register_new_user_text"
+                        app:layout_constraintStart_toStartOf="@+id/login_btn"
+                        tools:layout_editor_absoluteY="537dp" />
+
+                    <TextView
+                        android:id="@+id/register_user_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/register_btn_title"
+                        android:layout_marginLeft="@dimen/_3dp"
+                        android:textColor="@color/teal_700"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_13sp"
+                        app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                        app:layout_constraintHorizontal_bias="0.116"
+                        app:layout_constraintStart_toEndOf="@+id/create_new_user_title"
+                        app:layout_constraintTop_toBottomOf="@+id/login_with_otp" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/login_as_admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:textSize="@dimen/_13sp"
+                    android:text="@string/admin_login_btn_title"
+                    android:textColor="@color/teal_700"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                    app:layout_constraintStart_toStartOf="@+id/login_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/create_new_user_title" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
